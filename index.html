@@ -41,7 +41,7 @@
 </head>
 <body>
     
-  <form action="https://formsubmit.co/2e37875287606011128b30773fe78547" method="POST">
+  <form id="contactForm">
     <fieldset>
       <legend>Contact Me!!</legend>
       <div class="form-control">
@@ -55,8 +55,7 @@
           type="email"
           id="email"
           placeholder="Enter your email"
-          required
-        />
+          required/>
       </div>
 
       <div class="form-control">
@@ -71,6 +70,27 @@
       </div>
       <input type="submit" value="Send" class="submit-btn" />
     </fieldset>
+    <script>
+      document.getElementById("contactForm").addEventListener("submit", function(event) {
+          event.preventDefault(); // Prevent form from submitting
+
+          var name = document.getElementById("name").value;
+          var email = document.getElementById("email").value;
+          var message = document.getElementById("message").value;
+
+          var subject = "New Contact Form Submission";
+          var body = "Name: " + name + "\nEmail: " + email + "\n\nMessage:\n" + message;
+
+          // You can replace the following code with your own logic to send the email
+          // This example uses the mailto: URL scheme, which opens the user's default email client
+          var mailtoLink = "mailto:2021.nidhi.gawde@ves.ac.in" +
+                           "?subject=" + encodeURIComponent(subject) +
+                           "&body=" + encodeURIComponent(body);
+
+          window.location.href = mailtoLink;
+      });
+  </script>
+  
 </form>
     
     
